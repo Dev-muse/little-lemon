@@ -1,7 +1,7 @@
-import About from "./About";
-import Reserve from "./Reserve";
-import Specials from "./Specials";
-import Testimonials from "./Testimonials";
+import About from "./main/About";
+import Reserve from "./main/Reserve";
+import Specials from "./main/Specials";
+import Testimonials from "./main/Testimonials";
 
 const Main = () => {
   return (

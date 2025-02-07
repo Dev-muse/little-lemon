@@ -1,0 +1,39 @@
+#Reserve{
+  background-color: var(--primary);
+
+}
+
+
+.reserve-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2.5rem;
+  padding-bottom:2.5rem;
+  gap:6.3rem;
+}
+
+.reserve-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  color:white;
+ }
+
+ .reserve-left h1{
+  font-size: 5.6rem;
+  color:var(--secondary);
+ }
+
+ .reserve-left span{
+  font-size: 3.2rem;
+ }
+
+ .reserve-left p{
+  font-size: 2rem;
+  margin: 1.7rem 0;
+  max-width: 42.2rem;
+ }
+
+ 

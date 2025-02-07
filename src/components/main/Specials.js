@@ -23,7 +23,7 @@ const Specials = () => {
   ];
   return (
     <section id="Specials">
-      <div className="container">
+      <div className="container specials-container">
         <div className="title">
           <h2>Specials</h2>
           <a href="/" className="btn specials__btn">
