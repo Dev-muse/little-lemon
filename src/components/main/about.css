@@ -1,0 +1,48 @@
+#About{
+  margin: 6.7rem 0;
+}
+
+.about-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20.7rem;
+  gap:5rem;
+}
+
+.about__left,.about__right{
+  width: 50%;
+  
+}
+
+.about__title{
+  font-family: "Markazi Text", serif;
+font-size: 6.4rem; 
+font-weight: 500;
+}
+.about__subtext{
+  font-family: "Markazi Text", serif;
+  font-size: 4rem;
+  color:gray
+}
+ 
+.about__content{
+  font-size: 2rem;
+  margin-top: 4rem;
+}
+.about__right img{
+  height: 33.8rem;
+  width: 27.2rem;
+
+}
+.about__img2{
+  position: relative;
+ right:60px;
+ bottom: 150px;
+  z-index: 10;
+} 
+
+.about__img1{
+  z-index: 0;
+  
+}

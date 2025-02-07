@@ -12,7 +12,9 @@
   padding-bottom:2.5rem;
   gap:6.3rem;
 }
-
+.reserve-left,.reserve-right{
+  width: 50%;
+}
 .reserve-left{
   display: flex;
   flex-direction: column;
