@@ -1,3 +1,5 @@
+import "./testimonials.css";
+
 const Testimonials = () => {
   const testimonials = [
     {
@@ -24,8 +26,8 @@ const Testimonials = () => {
   return (
     <section id="Testimonials">
       <div className="container">
-        <h2 className="testimonial_heading">Testimonials</h2>
-        <div className="testimonial-containers">
+        <h2 className="testimonial__heading">Testimonials</h2>
+        <div className="testimonial-container">
           {testimonials.map(({ name, avatar, quote }) => {
             return (
               <Card key={name} name={name} avatar={avatar} quote={quote} />
