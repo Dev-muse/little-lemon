@@ -1,4 +1,4 @@
-import React from "react";
+import "./footer.css";
 
 const Footer = () => {
   return (
@@ -38,9 +38,9 @@ const Footer = () => {
           <div className="footer__contact">
             <h4>Contact</h4>
             <ul>
-              <li>Address</li>
-              <li>Phone n.o</li>
-              <li>email</li>
+              <li>2435 W Belmont Ave Chicago, IL 60618</li>
+              <li>(312) 555-7264</li>
+              <li>contact@littlelemonchicago.com</li>
             </ul>
           </div>
           <div className="footer__social">
