@@ -110,3 +110,18 @@ font-size: 2rem;
   -ms-transition: 10ms all ease-in-out;
   -o-transition: 10ms all ease-in-out;
 }
+
+
+
+#booking-form form{
+  display: "grid";
+   max-width: 200px;
+   gap: 20;
+   margin: 2rem auto;
+   
+}
+
+#booking-form input{
+  padding: 1rem 1.5rem;
+   
+}
