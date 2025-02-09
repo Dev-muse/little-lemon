@@ -1,4 +1,5 @@
 import "./reserve.css";
+import { Link } from "react-router-dom";
 
 const Reserve = () => {
   return (
@@ -8,13 +9,15 @@ const Reserve = () => {
           <h1>Little Lemon</h1>
           <span>Chicago</span>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Praesentium rerum optio ducimus distinctio non fugit blanditiis
-            quod, commodi doloribus sunt?
+            Savor the vibrant flavors of Mediterranean cuisine in the heart of
+            Chicago. At Little Lemon, we bring you fresh ingredients, bold
+            flavors, and a warm, inviting atmosphere. Whether you're here for a
+            casual dinner or a special celebration, every bite is a taste of
+            tradition and passion.
           </p>
-          <a href="/" className="btn btn-reserve">
+          <Link to="/booking" className="btn btn-reserve">
             Reserve a Table
-          </a>
+          </Link>
         </div>
         <img
           src="reserve-img.png"

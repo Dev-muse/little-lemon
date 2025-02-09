@@ -8,11 +8,16 @@ const About = () => {
           <h2 className="about__title">Little Lemon</h2>
           <span className="about__subtext">Chicago</span>
           <div className="about__content">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit. Exercitation
-            veniam consequat sunt nostrud amet. Amet minim mollit non deserunt
-            ullamco est sit aliqua dolor do amet sint. Velit officia consequat
-            duis enim velit mollit.{" "}
+            Nestled in the heart of Chicago, Little Lemon is a family-owned
+            Mediterranean restaurant dedicated to bringing authentic flavors to
+            your table. Inspired by the rich culinary traditions of Greece and
+            Italy, we craft every dish with fresh, locally sourced ingredients
+            and a passion for bold, zesty flavors. From our signature
+            lemon-infused seafood to hearty pastas and handcrafted mezze, every
+            bite is a celebration of tradition and taste. Whether you're joining
+            us for a cozy dinner, a festive gathering, or a quick bite, our warm
+            hospitality and vibrant atmosphere will make you feel right at home.
+            Come experience Mediterranean dining, reimagined!
           </div>
         </div>
         <div className="about__right">

@@ -22,18 +22,15 @@
 .footer__left{
   display: flex;
   align-items: center;
-
+margin-right: auto;
 }
 
 .footer__left img{
   background-color: white;
-  transform: rotate(90deg);
-  padding: 2rem;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-}
+   padding: 2rem;
+   width:20rem;
+ }
+ 
 .footer__right{
   display: flex;
   justify-content: space-between;
