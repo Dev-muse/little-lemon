@@ -4,13 +4,16 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import BookingForm from "./BookingForm";
 
-const BookingPage = ({ availableTimes }) => {
+const BookingPage = ({ availableTimes, setAvailableTimes }) => {
   return (
     <>
       <Header>
         <Nav />
       </Header>
-      <BookingForm availableTimes={availableTimes} />
+      <BookingForm
+        availableTimes={availableTimes}
+        setAvailableTimes={setAvailableTimes}
+      />
       <Footer />
     </>
   );
