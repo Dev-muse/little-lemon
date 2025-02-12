@@ -3,7 +3,7 @@ import "./index.css";
 import Homepage from "./components/Homepage";
 import { Route, Routes } from "react-router-dom";
 import BookingPage from "./components/BookingPage";
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 function App() {
   const updateTimes = (state, action) => {
     switch (action.type) {
@@ -18,7 +18,7 @@ function App() {
     return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
   };
 
-  const [state, dispatch] = useReducer(updateTimes, initializeTimes);
+  const [state, dispatch] = useReducer(updateTimes, initializeTimes());
 
   return (
     <div>

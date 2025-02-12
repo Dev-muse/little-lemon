@@ -5,6 +5,9 @@ import Footer from "./Footer";
 import BookingForm from "./BookingForm";
 
 const BookingPage = ({ availableTimes, setAvailableTimes }) => {
+  const handleSubmit = (value) => {
+    console.log("form submitted", value);
+  };
   return (
     <>
       <Header>
@@ -13,6 +16,7 @@ const BookingPage = ({ availableTimes, setAvailableTimes }) => {
       <BookingForm
         availableTimes={availableTimes}
         setAvailableTimes={setAvailableTimes}
+        onSubmit={handleSubmit}
       />
       <Footer />
     </>

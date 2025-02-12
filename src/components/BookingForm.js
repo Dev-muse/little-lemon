@@ -1,16 +1,17 @@
 import { useState } from "react";
 
-const BookingForm = ({ availableTimes, setAvailableTimes }) => {
+const BookingForm = ({ availableTimes, setAvailableTimes, onSubmit }) => {
   const [formData, setformData] = useState({
     date: "",
     time: "",
     occasion: "",
     guests: 1,
   });
-
+  const isDisabled = formData.date == "" && formData.time == "";
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    onSubmit(formData);
   };
 
   const changeHandler = (e) => {
@@ -21,6 +22,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes }) => {
   };
   return (
     <section className="container" id="booking-form">
+      <h1>Book Now</h1>
       <form
         style={{ display: "grid", maxWidth: 200, gap: 20 }}
         onSubmit={handleSubmit}
@@ -34,13 +36,12 @@ const BookingForm = ({ availableTimes, setAvailableTimes }) => {
           name="time"
           onChange={changeHandler}
         >
-          {availableTimes.map((time) => {
-            return (
+          {availableTimes &&
+            availableTimes.map((time) => (
               <option key={time} value={time}>
                 {time}
               </option>
-            );
-          })}
+            ))}
         </select>
         <label htmlFor="guests">Number of guests</label>
         <input
@@ -63,7 +64,14 @@ const BookingForm = ({ availableTimes, setAvailableTimes }) => {
           <option value={"Birthday"}>Birthday</option>
           <option value={"Anniversary"}>Anniversary</option>
         </select>
-        <input type="submit" value="Make Your reservation" className="btn" />
+        <button
+          type="submit"
+          role="button"
+          // disabled={isDisabled}
+          className="btn"
+        >
+          Make Your reservation
+        </button>
       </form>
     </section>
   );
