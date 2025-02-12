@@ -3,19 +3,21 @@ import "./index.css";
 import Homepage from "./components/Homepage";
 import { Route, Routes } from "react-router-dom";
 import BookingPage from "./components/BookingPage";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
+import { fetchAPI } from "./Api";
+
 function App() {
   const updateTimes = (state, action) => {
     switch (action.type) {
       case "UPDATE_TIMES":
-        return initializeTimes(); // Currently returns the same times regardless of date
+        return fetchAPI(new Date(action.payload));
       default:
         return state;
     }
   };
 
   const initializeTimes = () => {
-    return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+    return fetchAPI(new Date());
   };
 
   const [state, dispatch] = useReducer(updateTimes, initializeTimes());
