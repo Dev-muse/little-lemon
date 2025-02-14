@@ -1,0 +1,12 @@
+#confirmation{
+  margin: 8rem auto;
+}
+
+.confirm-container{
+  text-align: center;
+}
+.confirm-container h2{
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}

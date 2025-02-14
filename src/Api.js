@@ -1,26 +1,63 @@
-const seededRandom = function (seed) {
-  var m = 2 ** 35 - 31;
-  var a = 185852;
-  var s = seed % m;
-  return function () {
-    return (s = (s * a) % m) / m;
-  };
-};
+const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 
-export const fetchAPI = function (date) {
-  let result = [];
-  let random = seededRandom(date.getDate());
+const bookingByDate = [];
 
-  for (let i = 17; i <= 23; i++) {
-    if (random() < 0.5) {
-      result.push(i + ":00");
-    }
-    if (random() < 0.5) {
-      result.push(i + ":30");
-    }
+export const store = () => {
+  if (
+    !window.localStorage.getItem("availableTimes") ||
+    !window.localStorage.getItem("bookingByDate")
+  ) {
+    window.localStorage.setItem(
+      "availableTimes",
+      JSON.stringify(availableTimes)
+    );
+    window.localStorage.setItem("bookingByDate", JSON.stringify(bookingByDate));
   }
-  return result;
 };
-export const submitAPI = function (formData) {
+
+export const fetchAPI = async (date) => {
+  const booked = JSON.parse(localStorage.getItem("bookingByDate")).filter(
+    (b) => b.date === date
+  );
+  if (booked.length !== 0) {
+    const booking = availableTimes.filter((d) => !booked[0].booked.includes(d));
+    return booking;
+  }
+
+  return availableTimes;
+};
+
+export const submitApi = async (formData) => {
+  const date = formData.date;
+  const time = formData.time;
+  const bookingByDate = JSON.parse(localStorage.getItem("bookingByDate"));
+
+  const isBooked =
+    bookingByDate.filter((d) => d.booked.includes(time) && d.date === date)
+      .length !== 0;
+
+  const isDateExist = bookingByDate.filter((d) => d.date === date).length !== 0;
+
+  if (isBooked) {
+    return false;
+  }
+
+  if (isDateExist) {
+    const newBooking = bookingByDate.filter((d) => d.date === date);
+    localStorage.setItem(
+      "bookingByDate",
+      JSON.stringify([
+        ...bookingByDate.filter((d) => d.date !== date),
+        { ...newBooking[0], booked: [...newBooking[0].booked, time] },
+      ])
+    );
+    return true;
+  }
+
+  localStorage.setItem(
+    "bookingByDate",
+    JSON.stringify([...bookingByDate, { date: date, booked: [time] }])
+  );
+
   return true;
 };

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { submitAPI } from "../Api";
 
 const BookingForm = ({ availableTimes, setAvailableTimes, onSubmit }) => {
+  console.log("available", availableTimes);
+
   const [formData, setformData] = useState({
     date: "",
     time: "",
@@ -11,7 +12,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(submitAPI(formData));
+
     onSubmit(formData);
   };
 
