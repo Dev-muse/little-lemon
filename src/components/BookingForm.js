@@ -20,6 +20,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, onSubmit }) => {
     if (e.target.name === "date") {
       setAvailableTimes({ type: "UPDATE_TIMES", payload: e.target.value });
     }
+
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -37,14 +38,17 @@ const BookingForm = ({ availableTimes, setAvailableTimes, onSubmit }) => {
             name="date"
             id="res-date"
             onChange={changeHandler}
+            required
           />
           <label htmlFor="res-time">Choose time</label>
           <select
             id="res-time"
             value={formData.time}
             name="time"
+            required
             onChange={changeHandler}
           >
+            <option value="">Select Time</option>
             {availableTimes &&
               availableTimes.map((time) => (
                 <option key={time} value={time}>
