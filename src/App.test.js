@@ -16,6 +16,49 @@ test("initializeTimes should return available times from fetchAPI", async () => 
   expect(times).toEqual(mockTimes); // Expect output to match mock data
 });
 
+test("updateTimes updates localStorage when called", () => {
+  const mockData = ["17:00", "18:00"];
+  const testDate = "2025-02-11";
+
+  fetchAPI.mockReturnValue(mockData);
+  Storage.prototype.setItem = jest.fn();
+
+  updateTimes([], { type: "UPDATE_TIMES", payload: testDate });
+
+  expect(localStorage.setItem).toHaveBeenCalledWith(
+    testDate,
+    JSON.stringify(mockData)
+  );
+});
+
+test("writes available times to localStorage", () => {
+  const mockData = ["17:00", "18:00", "19:00"];
+  const testDate = "2025-02-11";
+
+  // Mock localStorage.setItem
+  Storage.prototype.setItem = jest.fn();
+
+  localStorage.setItem(testDate, JSON.stringify(mockData));
+
+  expect(localStorage.setItem).toHaveBeenCalledWith(
+    testDate,
+    JSON.stringify(mockData)
+  );
+});
+
+test("reads available times from localStorage", () => {
+  const mockData = ["17:00", "18:00", "19:00"];
+  const testDate = "2025-02-11";
+
+  // Mock localStorage.getItem
+  Storage.prototype.getItem = jest.fn(() => JSON.stringify(mockData));
+
+  const storedData = JSON.parse(localStorage.getItem(testDate));
+
+  expect(localStorage.getItem).toHaveBeenCalledWith(testDate);
+  expect(storedData).toEqual(mockData);
+});
+
 test("updateTimes should return new available times when date changes", () => {
   const mockTimes = ["17:00", "18:00", "19:00"];
   fetchAPI.mockReturnValue(mockTimes); // Mock API to return test data
